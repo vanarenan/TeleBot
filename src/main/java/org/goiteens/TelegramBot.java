@@ -6,8 +6,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TelegramBot extends TelegramLongPollingBot {
-    public TelegramBot() {
-    }
+    public TelegramBot() {}
     
     @Override
     public void onUpdateReceived(Update update) {
@@ -15,7 +14,6 @@ public class TelegramBot extends TelegramLongPollingBot {
             String message = update.getMessage().getText();
             String userName = update.getMessage().getContact().getFirstName();
             String response = ChatBot.process(message, userName);
-          
             sendText(update.getMessage().getChatId(), response);
         }
     }
