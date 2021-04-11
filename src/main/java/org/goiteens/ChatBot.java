@@ -17,9 +17,7 @@ public class ChatBot {
         if (isHelloMessage(message) == true) {
             String botName = "ChatBot";
             String userName = user;
-            List<String> greetingList = new ArrayList<>(Arrays.asList("" +
-                    "Здарова", "Алоха", "Хаюхай", "Хелоу", "Приффки", "боМжур, ёпта")
-            );
+            List<String> greetingList = new ArrayList<>(Arrays.asList("Здарова", "Алоха", "Хаюхай", "Хелоу", "Приффки", "боМжур, ёпта"));
             Random random = new Random();
             int index = random.nextInt(greetingList.size());
             String greeting = greetingList.get(index);
@@ -32,15 +30,12 @@ public class ChatBot {
 
     public static int find(String message, Map<String, Integer> data) {
         message = message.toLowerCase();
-
         for(String word: data.keySet()) {
             String lowerCasedWord = word.toLowerCase();
-
             if (message.contains(lowerCasedWord)) {
                 return data.get(word);
             }
         }
-
         return -1;
     }
     
@@ -54,15 +49,12 @@ public class ChatBot {
         if (monthCount == 0) {
             return 1;
         }
-
         return monthCount;
     }
     
     private static boolean isHelloMessage(String message) {
         message = message.toLowerCase();
-        List<String> helloMessage = new ArrayList<>(Arrays.asList(
-                "hello", "привет", "здарова", "здравствуй", "hi"
-        ));
+        List<String> helloMessage = new ArrayList<>(Arrays.asList("hello", "привет", "здарова", "здравствуй", "hi"));
         return helloMessage.contains(message);
     }
 }
